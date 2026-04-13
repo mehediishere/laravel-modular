@@ -1,8 +1,8 @@
 # mehediishere/laravel-modular
 
-A native, zero-dependency modular architecture package for Laravel ERP systems.
+A native, zero-dependency modular architecture package for Laravel modular systems.
 
-No nwidart. No magic traits. No JSON state files. Just pure Laravel.
+No magic traits. No JSON state files. Just pure Laravel.
 
 ---
 
