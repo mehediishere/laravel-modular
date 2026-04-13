@@ -1,0 +1,22 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| {{ module }} — API routes
+|--------------------------------------------------------------------------
+| All routes here are automatically loaded by BaseModuleServiceProvider
+| under the 'api' middleware group with /api prefix.
+|
+| Prefix:  /api/{{ module_lower }}/...
+*/
+
+Route::middleware('auth:sanctum')
+    ->prefix('{{ module_lower }}')
+    ->name('api.{{ module_lower }}.')
+    ->group(function () {
+
+        // Route::apiResource('items', \Modules\{{ module }}\app\Http\Controllers\ItemController::class);
+
+    });

@@ -1,0 +1,44 @@
+<?php
+
+namespace Modules\{{ module }}\app\Providers;
+
+use Mehediishere\LaravelModular\BaseModuleServiceProvider;
+
+class {{ module }}ServiceProvider extends BaseModuleServiceProvider
+{
+    /**
+     * The module folder name — must match exactly.
+     */
+    protected string $moduleName = '{{ module }}';
+
+    /**
+     * Singletons to register in the container.
+     *
+     * Example:
+     *   protected array $singletons = [
+     *       'currency' => \Modules\{{ module }}\app\Services\CurrencyService::class,
+     *   ];
+     */
+    protected array $singletons = [];
+
+    /**
+     * Interface => Concrete bindings.
+     *
+     * Example:
+     *   protected array $bindings = [
+     *       \Modules\{{ module }}\app\Contracts\RepositoryInterface::class =>
+     *       \Modules\{{ module }}\app\Repositories\Repository::class,
+     *   ];
+     */
+    protected array $bindings = [];
+
+    /**
+     * Artisan commands provided by this module.
+     *
+     * Example:
+     *   protected array $commands = [
+     *       \Modules\{{ module }}\app\Console\Commands\SyncCommand::class,
+     *   ];
+     */
+    protected array $commands = [];
+}

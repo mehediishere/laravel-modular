@@ -1,0 +1,24 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| {{ module }} — Web routes
+|--------------------------------------------------------------------------
+| All routes here are automatically loaded by BaseModuleServiceProvider
+| under the 'web' middleware group.
+|
+| Prefix:  /{{ module_lower }}/...
+| Name:    {{ module_lower }}.*
+*/
+
+Route::middleware(['web', 'auth'])
+    ->prefix('{{ module_lower }}')
+    ->name('{{ module_lower }}.')
+    ->group(function () {
+
+        Route::get('/', fn () => view('{{ module_lower }}::dashboard'))
+            ->name('dashboard');
+
+    });

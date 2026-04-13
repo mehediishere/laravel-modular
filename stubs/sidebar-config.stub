@@ -1,0 +1,60 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| {{ module }} — Sidebar configuration
+|--------------------------------------------------------------------------
+|
+| group_id    — Unique identifier for the sidebar group. Modules sharing
+|               the same group_id will have their items merged under one
+|               dropdown in the admin panel. Use snake_case.
+|               e.g. 'finance' groups Account + Payroll + Tax together.
+|
+| group       — Human-readable label shown in the sidebar dropdown header.
+|               All modules sharing the same group_id should use the same
+|               group label.
+|
+| icon        — Icon key for the group header (matches your icon system).
+|
+| order       — Group sort order in the sidebar. Lower = higher position.
+|               Modules sharing a group_id should use the same order value.
+|
+| items       — Navigation links belonging to this group.
+|   label      — Link text shown in the sidebar.
+|   route      — Named Laravel route.
+|   icon       — Icon key for this item.
+|   order      — Item sort order within the group. Lower = higher position.
+|   permission — Laravel Gate ability string. Leave empty to show to all
+|               authenticated users.
+|
+*/
+
+return [
+
+    'group_id' => '{{ module_lower }}',
+    'group'    => '{{ module }}',
+    'icon'     => 'box',
+    'order'    => 50,
+
+    'items' => [
+
+        [
+            'label'      => 'Dashboard',
+            'route'      => '{{ module_lower }}.dashboard',
+            'icon'       => 'grid',
+            'order'      => 1,
+            'permission' => '{{ module_lower }}.view',
+        ],
+
+        // Add more items:
+        // [
+        //     'label'      => 'Settings',
+        //     'route'      => '{{ module_lower }}.settings',
+        //     'icon'       => 'settings',
+        //     'order'      => 99,
+        //     'permission' => '{{ module_lower }}.settings.manage',
+        // ],
+
+    ],
+
+];

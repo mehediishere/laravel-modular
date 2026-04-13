@@ -1,0 +1,19 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| {{ module }} module configuration
+|--------------------------------------------------------------------------
+| Accessible anywhere via config('{{ module_lower }}.key').
+| The ModularServiceProvider merges this under the '{{ module_lower }}' namespace.
+*/
+
+return [
+
+    'name' => '{{ module }}',
+
+    // Add module-specific config keys below:
+    // 'per_page' => 25,
+    // 'currency' => 'BDT',
+
+];

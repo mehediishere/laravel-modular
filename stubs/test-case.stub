@@ -1,0 +1,16 @@
+<?php
+
+namespace Modules\{{ module }}\tests;
+
+use Tests\TestCase as BaseTestCase;
+
+abstract class TestCase extends BaseTestCase
+{
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // Module-specific test bootstrapping goes here.
+        // e.g. seed module-specific data, set config overrides, etc.
+    }
+}
