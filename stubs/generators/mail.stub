@@ -1,0 +1,29 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Content;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Queue\SerializesModels;
+
+class {{ class }} extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    public function __construct()
+    {
+        //
+    }
+
+    public function envelope(): Envelope
+    {
+        return new Envelope(subject: '{{ class }}');
+    }
+
+    public function content(): Content
+    {
+        return new Content(view: '{{ module_lower }}::emails.{{ module_lower }}');
+    }
+}

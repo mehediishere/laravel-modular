@@ -1,8 +1,8 @@
 # mehediishere/laravel-modular
 
-A native, zero-dependency modular architecture package for Laravel modular systems.
+A native, zero-dependency modular architecture package for Laravel ERP systems.
 
-No magic traits. No JSON state files. Just pure Laravel.
+No nwidart. No magic traits. No JSON state files. Just pure Laravel.
 
 ---
 
@@ -491,3 +491,104 @@ MIT — see [LICENSE](LICENSE)
 ## Author
 
 **Mehedi Hassan** — [@mehediishere](https://github.com/mehediishere)
+
+---
+
+## Full command reference (v1.1)
+
+### Utility
+
+```bash
+php artisan module:list                   # all modules — status, routes, migrations, sidebar
+php artisan module:enable  Account        # adds Account to config/modules.php enabled[]
+php artisan module:disable Account        # removes Account from config/modules.php enabled[]
+php artisan module:events                 # event → listener map across all enabled modules
+php artisan module:events POS             # filtered to one module
+php artisan module:events --static        # static file scan fallback (no app boot needed)
+```
+
+### Generators
+
+All generators follow the pattern: `php artisan module:make-{type} {ClassName} {Module}`
+
+```bash
+# Controller
+php artisan module:make-controller PostController      POS
+php artisan module:make-controller PostController      POS --api
+php artisan module:make-controller PostController      POS --plain
+php artisan module:make-controller PostController      POS --invokable
+
+# Model — individual flags
+php artisan module:make-model Product POS              # model only
+php artisan module:make-model Product POS -m           # + migration
+php artisan module:make-model Product POS -c           # + controller
+php artisan module:make-model Product POS -f           # + factory
+php artisan module:make-model Product POS -s           # + seeder
+php artisan module:make-model Product POS -r           # + form request
+
+# Model — combined shorthand (any combination of m c f s r)
+php artisan module:make-model Product POS --mcfsr=mc   # migration + controller
+php artisan module:make-model Product POS --mcfsr=mfs  # migration + factory + seeder
+php artisan module:make-model Product POS --mcfsr      # all five
+
+# Migration
+php artisan module:make-migration create_products_table POS
+php artisan module:make-migration add_price_to_products POS --table=products
+
+# Everything else
+php artisan module:make-request      StoreProductRequest    POS
+php artisan module:make-service      ProductService         POS
+php artisan module:make-event        ProductCreated         POS
+php artisan module:make-listener     SendProductAlert       POS --event=ProductCreated
+php artisan module:make-listener     SendProductAlert       POS --event=ProductCreated --queued
+php artisan module:make-job          ProcessProductImport   POS
+php artisan module:make-job          ProcessProductImport   POS --sync
+php artisan module:make-command      SyncCatalogCommand     POS
+php artisan module:make-middleware   CheckStoreIsOpen       POS
+php artisan module:make-mail         OrderConfirmation      POS
+php artisan module:make-notification LowStockAlert          POS
+php artisan module:make-observer     ProductObserver        POS
+php artisan module:make-policy       ProductPolicy          POS
+php artisan module:make-resource     ProductResource        POS
+php artisan module:make-resource     ProductResource        POS --collection
+php artisan module:make-seeder       ProductSeeder          POS
+php artisan module:make-factory      ProductFactory         POS
+php artisan module:make-trait        HasSku                 POS
+php artisan module:make-interface    ProductRepositoryInterface POS
+php artisan module:make-enum         ProductStatus          POS
+php artisan module:make-exception    ProductNotFoundException POS
+php artisan module:make-cast         MoneyValueCast         POS
+php artisan module:make-scope        ActiveProductScope     POS
+php artisan module:make-action       PublishProduct         POS
+php artisan module:make-helper       PriceHelper            POS
+php artisan module:make-repository   ProductRepository      POS
+php artisan module:make-class        ProductSyncHandler     POS
+```
+
+All generators accept `--force` to overwrite an existing file.
+
+### Translation
+
+```bash
+# Check missing keys across all modules vs English baseline
+php artisan module:lang
+
+# Check a single module
+php artisan module:lang POS
+
+# Check only one locale
+php artisan module:lang POS --locale=bn
+
+# Auto-fill missing keys using English value as fallback
+php artisan module:lang-sync
+
+# Sync only one module
+php artisan module:lang-sync POS
+
+# Sync only one locale across all modules
+php artisan module:lang-sync --locale=bn
+
+# Preview what would be added without writing files
+php artisan module:lang-sync --dry-run
+php artisan module:lang-sync POS --locale=bn --dry-run
+```

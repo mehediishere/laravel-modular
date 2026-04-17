@@ -1,0 +1,14 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Model;
+
+class {{ class }}
+{
+    public function created(Model $model): void {}
+    public function updated(Model $model): void {}
+    public function deleted(Model $model): void {}
+    public function restored(Model $model): void {}
+    public function forceDeleted(Model $model): void {}
+}

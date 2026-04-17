@@ -1,0 +1,35 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Routing\Controller;
+
+class {{ class }} extends Controller
+{
+    public function index(): JsonResponse
+    {
+        return response()->json([]);
+    }
+
+    public function store(Request $request): JsonResponse
+    {
+        return response()->json([], 201);
+    }
+
+    public function show(string $id): JsonResponse
+    {
+        return response()->json([]);
+    }
+
+    public function update(Request $request, string $id): JsonResponse
+    {
+        return response()->json([]);
+    }
+
+    public function destroy(string $id): JsonResponse
+    {
+        return response()->json([], 204);
+    }
+}
