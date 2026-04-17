@@ -22,10 +22,10 @@ No magic traits. No JSON state files. Just pure Laravel.
 
 ## Requirements
 
-| Dependency | Version           |
-|------------|-------------------|
-| PHP        | ^8.2              |
-| Laravel    | ^11.0 or ^12.0    |
+| Dependency | Version                    |
+|------------|----------------------------|
+| PHP        | ^8.2                       |
+| Laravel    | ^11.0 || ^12.0 || ^13.0    |
 
 ---
 
